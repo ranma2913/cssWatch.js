@@ -10,7 +10,7 @@ There is both a jQuery-specific plugin as well as a library agnostic version of 
 ```javascript
 
 // Watch for width or height changes and log values
-$('div').watch('width height', function(){
+$('div').cssWatch('width height', function(){
 	console.log(this.style.width, this.style.height);
 });
 ````
@@ -20,7 +20,7 @@ $('div').watch('width height', function(){
 
 // Watch for width or height changes and log values
 var div = document.querySelectorAll('div');
-watch( div, 'width height', function(){
+cssWatch( div, 'width height', function(){
 	console.log(this.style.width, this.style.height);
 });
 ````
