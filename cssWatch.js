@@ -7,14 +7,14 @@
  * Dual licensed under the MIT and GPL licenses.
  *
  * Usage:
- * watch(element, 'width height', function(){
+ * cssWatch(element, 'width height', function(){
  *   console.log(this.style.width, this.style.height);
  * });
  */
 
 (function (window) {
 
-  var _watch = function (elements, props, options, callback){
+  var _cssWatch = function (elements, props, options, callback){
 
     // Setup
     var self = this;
@@ -105,12 +105,12 @@
         data.changed[j] = false;
       }
 
-      // Set watch array
+      // Set cssWatch array
       if (!element.watching) {
         element.watching = [];
       }
 
-      // Store data in watch array
+      // Store data in cssWatch array
       element.watching.push(data);
 
       // Create new Mutation Observer
@@ -131,16 +131,16 @@
 
   };
 
-  // Expose watch to window
-  window.watch = function () {
-    return _watch.apply(arguments[0], arguments);
+  // Expose cssWatch to window
+  window.cssWatch = function () {
+    return _cssWatch.apply(arguments[0], arguments);
   };
 
-  // Expose watch to jQuery
+  // Expose cssWatch to jQuery
   (function ($) {
-    $.fn.watch = function () {
+    $.fn.cssWatch = function () {
       Array.prototype.unshift.call(arguments, this);
-      return _watch.apply(this, arguments);
+      return _cssWatch.apply(this, arguments);
     };
   })(jQuery);
 
